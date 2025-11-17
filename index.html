@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Final exams</title>
+
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+        margin-bottom: 60px; /* Adjusted to make room for the footer */
+      }
+      .header-section {
+        background-color: #343a40;
+        color: #ffffff;
+        padding: 30px 0;
+        text-align: center;
+      }
+      .container {
+        margin-top: 20px;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      .button-container {
+        margin-top: 10px;
+      }
+      .photo-section,
+      .details-section {
+        background-color: #e9ecef;
+        padding: 20px;
+        border-radius: 5px;
+        height: 100%;
+      }
+      .footer-section {
+        position: fixed;
+        padding-top: 20px;
+        bottom: 0;
+        width: 100%;
+        background-color: #343a40;
+        color: #ffffff;
+        text-align: center;
+        padding: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header-section">
+      <h1 class="display-3">karhagalwa munguakonkwa</h1>
+      <p class="lead">karhagalwa</p>
+    </div>
+
+    <div class="container">
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <div class="d-flex flex-column photo-section">
+            <div class="row">
+              <div class="col-md-12">
+                <img
+                  id="profileImg"
+                  src="images/buzba.jpg"
+                  alt="Your Photo"
+                  class="img-fluid"
+                />
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-md-12 button-container">
+                <button
+                  onclick="prevPhoto()"
+                  class="btn btn-primary"
+                  id="prevBtn"
+                  disabled
+                >
+                  Previous Photo
+                </button>
+                <button
+                  onclick="nextPhoto()"
+                  class="btn btn-primary ml-2"
+                  id="nextBtn"
+                >
+                  Next Photo
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="d-flex flex-column details-section">
+            <div class="row">
+              <div class="col-md-12">
+                <header>
+                  <h2>Your Name: KARHAGALWA MUNGUAKONKWA</h2>
+                  <p>Registration No: 25/BCC/BU/R/0003</p>
+                  <p>Exam Pass No: 25SEM1/BU/Exam0785</p>
+                  <p>Email: karhagalwaenock@gmail.com</p>
+                  <p>Phone Contact:+256 745555308</p>
+                </header>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <div class="d-flex flex-column photo-section">
+            <p>Personal Website</p>
+            <a
+              href="https://karhagalwaenock-collab.github.io/personnal-web/"
+              target="_blank"
+              class="card-link"
+              >Visit Site</a
+            >
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="d-flex flex-column details-section">
+            <div class="row">
+              <div class="col-md-12">
+                <p>Organizational Website</p>
+                <a
+                  href="https://karhagalwaenock-collab.github.io/web-dev/"
+                  target="_blank"
+                  class="card-link"
+                  >Visit Site</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-section">
+      <p>Designed By: KARHAGALWA MUNGUAKONKWA</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+      var currentPhotoIndex = 0;
+      var photos = ["/images/tech1.jpg", "/images/tech2.jpg"];
+      var prevBtn = document.getElementById("prevBtn");
+      var nextBtn = document.getElementById("nextBtn");
+
+      function updateButtons() {
+        prevBtn.disabled = currentPhotoIndex === 0;
+        nextBtn.disabled = currentPhotoIndex === photos.length - 1;
+      }
+
+      function prevPhoto() {
+        currentPhotoIndex = Math.max(0, currentPhotoIndex - 1);
+        updatePhoto();
+        updateButtons();
+      }
+
+      function nextPhoto() {
+        currentPhotoIndex = Math.min(photos.length - 1, currentPhotoIndex + 1);
+        updatePhoto();
+        updateButtons();
+      }
+
+      function updatePhoto() {
+        var imgElement = document.getElementById("profileImg");
+        imgElement.src = photos[currentPhotoIndex];
+      }
+    </script>
+  </body>
+</html>
